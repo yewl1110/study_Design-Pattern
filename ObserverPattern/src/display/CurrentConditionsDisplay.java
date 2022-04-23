@@ -2,9 +2,16 @@ package display;
 
 import observer.Observer;
 import weather.WeatherData;
+import weather.WeatherStation;
 
 public class CurrentConditionsDisplay implements Display, Observer {
-    WeatherData weatherData;
+    private WeatherData weatherData;
+    private WeatherStation weatherStation;
+
+    public CurrentConditionsDisplay() {}
+    public CurrentConditionsDisplay(WeatherStation weatherStation) {
+        this.weatherStation = weatherStation;
+    }
 
     @Override
     public void display() {
@@ -16,8 +23,14 @@ public class CurrentConditionsDisplay implements Display, Observer {
     }
 
     @Override
-    public void update(Object o) {
+    public void updatePush(Object o) {
         weatherData = (WeatherData) o;
+        display();
+    }
+
+    @Override
+    public void updatePull() {
+        weatherData = weatherStation.getWeatherData();
         display();
     }
 }

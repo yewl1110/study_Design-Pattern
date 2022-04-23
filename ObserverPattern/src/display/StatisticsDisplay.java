@@ -2,15 +2,21 @@ package display;
 
 import observer.Observer;
 import weather.WeatherData;
+import weather.WeatherStation;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class StatisticsDisplay implements Display, Observer {
-    List<WeatherData> weatherDataList;
+    private List<WeatherData> weatherDataList;
+    private WeatherStation weatherStation;
 
     public StatisticsDisplay() {
         weatherDataList = new ArrayList<>();
+    }
+    public StatisticsDisplay(WeatherStation weatherStation) {
+        weatherDataList = new ArrayList<>();
+        this.weatherStation = weatherStation;
     }
 
     @Override
@@ -23,8 +29,14 @@ public class StatisticsDisplay implements Display, Observer {
     }
 
     @Override
-    public void update(Object o) {
+    public void updatePush(Object o) {
         weatherDataList.add((WeatherData) o);
+        display();
+    }
+
+    @Override
+    public void updatePull() {
+        weatherDataList.add(weatherStation.getWeatherData());
         display();
     }
 }

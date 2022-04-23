@@ -10,9 +10,16 @@ public class Main {
     public static void main(String[] args) {
         WeatherStation weatherStation = WeatherStation.getInstance();
 
+        /* subject -> observer push */
         CurrentConditionsDisplay currentConditionsDisplay = new CurrentConditionsDisplay();
         ForecastDisplay forecastDisplay = new ForecastDisplay();
         StatisticsDisplay statisticsDisplay = new StatisticsDisplay();
+
+        /* subject -- observer pull */
+         currentConditionsDisplay = new CurrentConditionsDisplay(weatherStation);
+         forecastDisplay = new ForecastDisplay(weatherStation);
+         statisticsDisplay = new StatisticsDisplay(weatherStation);
+
         weatherStation.registerObserver(currentConditionsDisplay);
         weatherStation.registerObserver(forecastDisplay);
         weatherStation.registerObserver(statisticsDisplay);

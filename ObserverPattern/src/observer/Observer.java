@@ -1,5 +1,6 @@
 package observer;
 
 public interface Observer {
-    void update(Object o);
+    void updatePush(Object o);
+    void updatePull();
 }

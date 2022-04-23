@@ -26,6 +26,10 @@ public class WeatherStation implements Subject {
         notifyObserver();
     }
 
+    public WeatherData getWeatherData() {
+        return weatherData;
+    }
+
     @Override
     public void registerObserver(Observer observer) {
         observers.add(observer);
@@ -40,7 +44,8 @@ public class WeatherStation implements Subject {
     public void notifyObserver() {
         if(weatherData != null) {
             for(Observer o : observers) {
-                o.update(this.weatherData);
+//                o.updatePush(this.weatherData);
+                o.updatePull();
             }
         }
     }
