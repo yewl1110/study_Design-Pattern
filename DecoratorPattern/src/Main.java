@@ -18,12 +18,14 @@ public class Main {
         print(beverage);
 
         Beverage beverage1 = new Espresso();
+        beverage1.setSize(Beverage.Size.GRANDE);
         beverage1 = new Milk(beverage1);
         beverage1 = new Milk(beverage1);
         beverage1 = new Whip(beverage1);
         print(beverage1);
 
         Beverage beverage2 = new Decaf();
+        beverage2.setSize(Beverage.Size.VENTI);
         beverage2 = new Soy(beverage2);
         beverage2 = new Whip(beverage2);
         beverage2 = new Whip(beverage2);
@@ -32,6 +34,6 @@ public class Main {
     }
     private static void print(Beverage beverage) {
         System.out.println(beverage.getDescription());
-        System.out.println(String.format("$ %.2f",beverage.cost()));
+        System.out.println(String.format("$ %.3f",beverage.cost()));
     }
 }
