@@ -3,17 +3,13 @@ package store;
 import factory.SimplePizzaFactory;
 import pizza.Pizza;
 
-public class PizzaStore { //client
-    SimplePizzaFactory factory;
+public abstract class PizzaStore { //client
+    public enum Menu {CHEESE, VEGGIE, CLAM, PEPPERONI}
 
-    public PizzaStore(SimplePizzaFactory factory) {
-        this.factory = factory;
-    }
-
-    public Pizza orderPizza(String type) {
+    public Pizza orderPizza(Menu menu) {
         Pizza pizza;
 
-        pizza = factory.createPizza(type);
+        pizza = createPizza(menu);
 
         pizza.prepare();
         pizza.bake();
@@ -21,4 +17,6 @@ public class PizzaStore { //client
         pizza.box();
         return pizza;
     }
+
+    public abstract Pizza createPizza(Menu menu);
 }

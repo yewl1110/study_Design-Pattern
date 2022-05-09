@@ -1,15 +1,16 @@
 import factory.SimplePizzaFactory;
+import store.ChicagoStylePizzaStore;
+import store.NYStylePizzaStore;
 import store.PizzaStore;
 
 public class Main {
     static public void main(String[] args) {
-        PizzaStore pizzaStore = new PizzaStore(new SimplePizzaFactory());
-        pizzaStore.orderPizza("clam");
-        System.out.println("----------");
-        pizzaStore.orderPizza("veggie");
-        System.out.println("----------");
-        pizzaStore.orderPizza("cheese");
-        System.out.println("----------");
-        pizzaStore.orderPizza("pepperoni");
+        PizzaStore nyStore = new NYStylePizzaStore();
+        nyStore.orderPizza(PizzaStore.Menu.VEGGIE);
+        nyStore.orderPizza(PizzaStore.Menu.CHEESE);
+
+        PizzaStore chicagoStore = new ChicagoStylePizzaStore();
+        chicagoStore.orderPizza(PizzaStore.Menu.PEPPERONI);
+        chicagoStore.orderPizza(PizzaStore.Menu.CLAM);
     }
 }
