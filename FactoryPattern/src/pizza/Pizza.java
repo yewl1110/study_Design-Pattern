@@ -1,23 +1,25 @@
 package pizza;
 
+import ingredient.cheese.Cheese;
+import ingredient.clam.Clams;
+import ingredient.dough.Dough;
+import ingredient.pepperoni.Pepperoni;
+import ingredient.sauce.Sauce;
+import ingredient.veggie.Veggies;
+
 import java.util.ArrayList;
 import java.util.List;
 
-public class Pizza {
+public abstract class Pizza {
     String name;
-    String dough;
-    String sauce;
-    List<String> toppings = new ArrayList<>(); 
-    public void prepare() {
-        System.out.println("재료준비하기:"+name);
-        System.out.println("도우 돌리는중");
-        System.out.println("소스 뿌리는중");
-        System.out.print("토핑 올리는중:");
-        for(String topping : toppings) {
-            System.out.print(" " + topping);
-        }
-        System.out.println("");
-    }
+    Dough dough;
+    Sauce sauce;
+    Veggies[] veggies;
+    Cheese cheese;
+    Pepperoni pepperoni;
+    Clams clam;
+
+    public abstract void prepare();
     public void bake() {
         System.out.println("175도에서 25분 굽기");
     }
@@ -27,5 +29,10 @@ public class Pizza {
     public void box() {
         System.out.println("포장하기\n");
     }
-
+    public void setName(String name) {
+        this.name = name;
+    }
+    public String getName() {
+        return this.name;
+    }
 }

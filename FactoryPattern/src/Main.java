@@ -1,4 +1,3 @@
-import factory.SimplePizzaFactory;
 import store.ChicagoStylePizzaStore;
 import store.NYStylePizzaStore;
 import store.PizzaStore;
