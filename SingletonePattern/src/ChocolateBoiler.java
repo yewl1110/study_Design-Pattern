@@ -2,11 +2,15 @@ public class ChocolateBoiler {
     private boolean empty;
     private boolean boiled;
 
-    private static ChocolateBoiler instance = getInstance();
+    private volatile static ChocolateBoiler instance;
 
     public static ChocolateBoiler getInstance() {
         if(instance == null) {
-            instance = new ChocolateBoiler();
+            synchronized (ChocolateBoiler.class) {
+                if(instance == null) {
+                    instance = new ChocolateBoiler();
+                }
+            }
         }
         return instance;
     }
