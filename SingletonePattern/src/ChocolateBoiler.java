@@ -2,9 +2,9 @@ public class ChocolateBoiler {
     private boolean empty;
     private boolean boiled;
 
-    private static ChocolateBoiler instance;
+    private static ChocolateBoiler instance = getInstance();
 
-    public synchronized static ChocolateBoiler getInstance() {
+    public static ChocolateBoiler getInstance() {
         if(instance == null) {
             instance = new ChocolateBoiler();
         }
