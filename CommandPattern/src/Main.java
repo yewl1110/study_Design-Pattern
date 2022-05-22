@@ -32,18 +32,38 @@ public class Main {
         remoteControl.setCommand(3, garageDoorOn, garageDoorOff);
         remoteControl.setCommand(4, stereoOn, stereoOff);
 
-        System.out.println(remoteControl);
 
-        remoteControl.onButtonWasPushed(0);
-        remoteControl.offButtonWasPushed(0);
-        remoteControl.onButtonWasPushed(1);
-        remoteControl.offButtonWasPushed(1);
         remoteControl.onButtonWasPushed(2);
         remoteControl.offButtonWasPushed(2);
-        remoteControl.onButtonWasPushed(3);
-        remoteControl.offButtonWasPushed(3);
+        System.out.println(remoteControl);
+        remoteControl.undoButtonWasPushed();
         remoteControl.onButtonWasPushed(4);
         remoteControl.offButtonWasPushed(4);
+        System.out.println(remoteControl);
+        remoteControl.undoButtonWasPushed();
+        System.out.println(remoteControl);
 
+
+        RemoteControl ceilingFanController = new RemoteControl();
+        CeilingFan ceilingFan1 = new CeilingFan("Living Room");
+        CeilingFanHighCommand ceilingFanHigh = new CeilingFanHighCommand(ceilingFan1);
+        CeilingFanMediumCommand ceilingFanMedium = new CeilingFanMediumCommand(ceilingFan1);
+        CeilingFanLowCommand ceilingFanLow = new CeilingFanLowCommand(ceilingFan1);
+        ceilingFanOff = new CeilingFanOffCommand(ceilingFan1);
+        ceilingFanController.setCommand(0, ceilingFanHigh, ceilingFanOff);
+        ceilingFanController.setCommand(1, ceilingFanMedium, ceilingFanOff);
+        ceilingFanController.setCommand(2, ceilingFanLow, ceilingFanOff);
+
+        ceilingFanController.onButtonWasPushed(0);
+//        ceilingFanController.undoButtonWasPushed();
+        ceilingFanController.onButtonWasPushed(1);
+//        ceilingFanController.undoButtonWasPushed();
+        System.out.println(ceilingFanController);
+        ceilingFanController.onButtonWasPushed(2);
+        System.out.println(ceilingFanController);
+        ceilingFanController.undoButtonWasPushed();
+        System.out.println(ceilingFanController);
+        ceilingFanController.offButtonWasPushed(2);
+        ceilingFanController.undoButtonWasPushed();
     }
 }

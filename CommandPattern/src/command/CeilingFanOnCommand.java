@@ -1,7 +1,6 @@
 package command;
 
 import receiver.CeilingFan;
-import receiver.GarageDoor;
 
 public class CeilingFanOnCommand implements Command {
     CeilingFan ceilingFan;
@@ -13,5 +12,10 @@ public class CeilingFanOnCommand implements Command {
     @Override
     public void execute() {
         ceilingFan.on();
+    }
+
+    @Override
+    public void undo() {
+        ceilingFan.off();
     }
 }
