@@ -26,44 +26,20 @@ public class Main {
         StereoOnWithCDCommand stereoOn = new StereoOnWithCDCommand(stereo);
         StereoOffWithCDCommand stereoOff = new StereoOffWithCDCommand(stereo);
 
-        remoteControl.setCommand(0, livingRoomLightOn, livingRoomLightOff);
-        remoteControl.setCommand(1, kitchenLightOn, kitchenLightOff);
-        remoteControl.setCommand(2, ceilingFanOn, ceilingFanOff);
-        remoteControl.setCommand(3, garageDoorOn, garageDoorOff);
-        remoteControl.setCommand(4, stereoOn, stereoOff);
+        Command[] macroOn = {livingRoomLightOn, kitchenLightOn, ceilingFanOn, stereoOn};
+        Command[] macroOff = {livingRoomLightOff, kitchenLightOff, ceilingFanOff, stereoOff};
 
+        MacroCommand switchOnMacro = new MacroCommand(macroOn);
+        MacroCommand switchOffMacro = new MacroCommand(macroOff);
 
-        remoteControl.onButtonWasPushed(2);
-        remoteControl.offButtonWasPushed(2);
+        remoteControl.setCommand(0, switchOnMacro, switchOffMacro);
+
         System.out.println(remoteControl);
+        System.out.println("--- macro on ---");
+        remoteControl.onButtonWasPushed(0);
+        System.out.println("--- macro off ---");
+        remoteControl.offButtonWasPushed(0);
+        System.out.println("--- macro undo ---");
         remoteControl.undoButtonWasPushed();
-        remoteControl.onButtonWasPushed(4);
-        remoteControl.offButtonWasPushed(4);
-        System.out.println(remoteControl);
-        remoteControl.undoButtonWasPushed();
-        System.out.println(remoteControl);
-
-
-        RemoteControl ceilingFanController = new RemoteControl();
-        CeilingFan ceilingFan1 = new CeilingFan("Living Room");
-        CeilingFanHighCommand ceilingFanHigh = new CeilingFanHighCommand(ceilingFan1);
-        CeilingFanMediumCommand ceilingFanMedium = new CeilingFanMediumCommand(ceilingFan1);
-        CeilingFanLowCommand ceilingFanLow = new CeilingFanLowCommand(ceilingFan1);
-        ceilingFanOff = new CeilingFanOffCommand(ceilingFan1);
-        ceilingFanController.setCommand(0, ceilingFanHigh, ceilingFanOff);
-        ceilingFanController.setCommand(1, ceilingFanMedium, ceilingFanOff);
-        ceilingFanController.setCommand(2, ceilingFanLow, ceilingFanOff);
-
-        ceilingFanController.onButtonWasPushed(0);
-//        ceilingFanController.undoButtonWasPushed();
-        ceilingFanController.onButtonWasPushed(1);
-//        ceilingFanController.undoButtonWasPushed();
-        System.out.println(ceilingFanController);
-        ceilingFanController.onButtonWasPushed(2);
-        System.out.println(ceilingFanController);
-        ceilingFanController.undoButtonWasPushed();
-        System.out.println(ceilingFanController);
-        ceilingFanController.offButtonWasPushed(2);
-        ceilingFanController.undoButtonWasPushed();
     }
 }
