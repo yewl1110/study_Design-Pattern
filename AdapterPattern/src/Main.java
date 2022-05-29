@@ -1,11 +1,20 @@
 import adaptor.DuckAdaptor;
+import adaptor.EnumerationIterator;
 import adaptor.TurkeyAdaptor;
 import entity.Duck;
 import entity.MallardDuck;
 import entity.Turkey;
 import entity.WildTurkey;
+
+import java.util.*;
+
 public class Main {
     public static void main(String[] args) {
+//        example1();
+        example2();
+    }
+
+    public static void example1() {
         System.out.println("진짜 오리");
         Duck duck1 = new MallardDuck();
         turkeyAdaptorTest(duck1);
@@ -28,5 +37,15 @@ public class Main {
     public static void duckAdaptorTest(Turkey turkey) {
         turkey.gobble();
         turkey.fly();
+    }
+
+    public static void example2() {
+        List<String> foodList = List.of("치킨", "피자", "라면", "삼겹살", "갈비");
+
+        System.out.println("enumeration 어댑터");
+        Iterator iterator = new EnumerationIterator<>(Collections.enumeration(foodList));
+        while(iterator.hasNext()) {
+            System.out.println(iterator.next());
+        }
     }
 }
