@@ -1,4 +1,5 @@
 import component.Duck;
+import component.MyStringList;
 import template.CaffeineBeverage;
 import template.Coffee;
 import template.Tea;
@@ -9,7 +10,9 @@ public class Main {
     public static void main(String[] args) {
 //        test1();
 
-        test2();
+//        test2();
+
+        test3();
 
     }
 
@@ -43,5 +46,12 @@ public class Main {
         for(Duck d : ducks) {
             System.out.println(d);
         }
+    }
+
+    static void test3() {
+        String[] testList = {"JAVA", "TypeScript", "Go", "PHP", "JavaScript", "C++"};
+        MyStringList myStringList = new MyStringList(testList);
+        myStringList.set(2, "C#");
+        System.out.println(myStringList.subList(2,6));
     }
 }
