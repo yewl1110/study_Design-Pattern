@@ -1,3 +1,4 @@
+import menu.CafeMenu;
 import menu.DinerMenu;
 import menu.PancakeHouseMenu;
 
@@ -9,7 +10,8 @@ public class Main {
     static void test() {
         DinerMenu dinerMenu = new DinerMenu();
         PancakeHouseMenu pancakeHouseMenu = new PancakeHouseMenu();
-        Waitress waitress = new Waitress(pancakeHouseMenu, dinerMenu);
+        CafeMenu cafeMenu = new CafeMenu();
+        Waitress waitress = new Waitress(pancakeHouseMenu, dinerMenu, cafeMenu);
         waitress.printMenu();
     }
 }
