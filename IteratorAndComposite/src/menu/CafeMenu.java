@@ -6,7 +6,7 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
 
-public class CafeMenu {
+public class CafeMenu implements Menu {
     Map<String, MenuItem> menuItems = new HashMap<>();
 
     public CafeMenu() {

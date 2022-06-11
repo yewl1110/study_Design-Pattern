@@ -1,6 +1,10 @@
 import menu.CafeMenu;
 import menu.DinerMenu;
+import menu.Menu;
 import menu.PancakeHouseMenu;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
@@ -8,10 +12,8 @@ public class Main {
     }
 
     static void test() {
-        DinerMenu dinerMenu = new DinerMenu();
-        PancakeHouseMenu pancakeHouseMenu = new PancakeHouseMenu();
-        CafeMenu cafeMenu = new CafeMenu();
-        Waitress waitress = new Waitress(pancakeHouseMenu, dinerMenu, cafeMenu);
+        List<Menu> menuList = List.of(new DinerMenu(), new PancakeHouseMenu(), new CafeMenu());
+        Waitress waitress = new Waitress(menuList);
         waitress.printMenu();
     }
 }
