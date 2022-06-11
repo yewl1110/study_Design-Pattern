@@ -1,3 +1,5 @@
+package menu;
+
 import menu.CafeMenu;
 import menu.DinerMenu;
 import menu.Menu;
