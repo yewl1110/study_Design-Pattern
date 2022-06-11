@@ -1,5 +1,7 @@
 package menu;
 
+import iterator.DinerMenuIterator;
+import iterator.Iterator;
 import menuitem.MenuItem;
 
 public class DinerMenu {
@@ -26,9 +28,7 @@ public class DinerMenu {
         }
     }
 
-    public MenuItem[] getMenuItems() {
-        return menuItems;
+    public Iterator createIterator() {
+        return new DinerMenuIterator(menuItems);
     }
-
-
 }
