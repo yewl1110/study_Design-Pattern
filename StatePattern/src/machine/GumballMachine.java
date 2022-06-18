@@ -1,10 +1,11 @@
 package machine;
 
 public class GumballMachine {
-    private State soldState;
-    private State soldOutState;
-    private State hasQuarterState;
-    private State noQuarterState;
+    private final State soldState;
+    private final State soldOutState;
+    private final State hasQuarterState;
+    private final State noQuarterState;
+    private final State winnerState;
 
     private State state;
     private int count;
@@ -14,6 +15,7 @@ public class GumballMachine {
         soldOutState = new SoldOutState(this);
         hasQuarterState = new HasQuarterState(this);
         noQuarterState = new NoQuarterState(this);
+        winnerState = new WinnerState(this);
         this.count = count;
         if(this.count == 0) {
             state = this.soldOutState;
@@ -67,6 +69,10 @@ public class GumballMachine {
     }
     public State getNoQuarterState() {
         return noQuarterState;
+    }
+
+    public State getWinnerState() {
+        return winnerState;
     }
 
     @Override
