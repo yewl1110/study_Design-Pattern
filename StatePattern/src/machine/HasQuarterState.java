@@ -38,4 +38,9 @@ public class HasQuarterState implements State {
     public void dispense() {
 
     }
+
+    @Override
+    public void refill() {
+
+    }
 }

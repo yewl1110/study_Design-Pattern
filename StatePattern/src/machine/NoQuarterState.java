@@ -27,4 +27,9 @@ public class NoQuarterState implements State{
     @Override
     public void dispense() {
     }
+
+    @Override
+    public void refill() {
+
+    }
 }

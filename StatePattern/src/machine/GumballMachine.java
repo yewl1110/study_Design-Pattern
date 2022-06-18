@@ -44,6 +44,12 @@ public class GumballMachine {
         }
     }
 
+    public void refill() {
+        count++;
+        System.out.println("캡슐을 채웁니다.");
+        state.refill();
+    }
+
     public State getState() {
         return state;
     }

@@ -37,4 +37,9 @@ public class WinnerState implements State {
             }
         }
     }
+
+    @Override
+    public void refill() {
+
+    }
 }

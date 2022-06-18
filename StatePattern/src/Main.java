@@ -8,9 +8,32 @@ public class Main {
 
         gumballMachine.insertQuarter();
         gumballMachine.turnCrank();
+        gumballMachine.insertQuarter();
+        gumballMachine.turnCrank();
+        gumballMachine.insertQuarter();
+        gumballMachine.turnCrank();
+        gumballMachine.insertQuarter();
+        gumballMachine.turnCrank();
+        gumballMachine.insertQuarter();
+        gumballMachine.turnCrank();
+
+        System.out.println(gumballMachine);
+        gumballMachine.insertQuarter();
+        gumballMachine.turnCrank();
+
+        System.out.println(gumballMachine);
+        gumballMachine.refill();
 
         System.out.println(gumballMachine);
 
+        gumballMachine.insertQuarter();
+        gumballMachine.turnCrank();
+        System.out.println(gumballMachine);
+
+        gumballMachine.refill();
+        gumballMachine.refill();
+        gumballMachine.refill();
+        gumballMachine.refill();
         gumballMachine.insertQuarter();
         gumballMachine.ejectQuarter();
         gumballMachine.turnCrank();
