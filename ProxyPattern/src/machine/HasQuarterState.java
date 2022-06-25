@@ -1,11 +1,14 @@
 package machine;
 
+import java.io.Serial;
 import java.util.Date;
 import java.util.Random;
 
 public class HasQuarterState implements State {
+    @Serial
+    private static final long serialVersionUID = 2L;
     Random random;
-    GumballMachine gumballMachine;
+    transient GumballMachine gumballMachine;
 
     public HasQuarterState(GumballMachine gumballMachine) {
         random = new Random(new Date().getTime());

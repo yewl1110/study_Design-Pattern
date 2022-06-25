@@ -1,7 +1,12 @@
 package machine;
 
+import java.io.Serial;
+
 public class SoldOutState implements State{
-    GumballMachine gumballMachine;
+    @Serial
+    private static final long serialVersionUID = 2L;
+
+    transient GumballMachine gumballMachine;
 
     public SoldOutState(GumballMachine gumballMachine) {
         this.gumballMachine = gumballMachine;
