@@ -2,7 +2,7 @@ package machine;
 
 import java.io.Serial;
 
-public class NoQuarterState implements State{
+public class NoQuarterState implements State {
     @Serial
     private static final long serialVersionUID = 2L;
 
@@ -36,5 +36,9 @@ public class NoQuarterState implements State{
     @Override
     public void refill() {
 
+    }
+    @Override
+    public String toString() {
+        return "state : 동전없음";
     }
 }

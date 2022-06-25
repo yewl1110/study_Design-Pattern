@@ -100,4 +100,7 @@ public class GumballMachine extends UnicastRemoteObject implements GumballMachin
                 "count=" + count +
                 '}';
     }
+    public State getStateObject() {
+        return state;
+    }
 }

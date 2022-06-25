@@ -39,4 +39,8 @@ public class SoldState implements State {
     public void refill() {
 
     }
+    @Override
+    public String toString() {
+        return "state : 판매중";
+    }
 }

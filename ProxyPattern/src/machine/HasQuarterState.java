@@ -46,4 +46,8 @@ public class HasQuarterState implements State {
     public void refill() {
 
     }
+    @Override
+    public String toString() {
+        return "state : 동전 넣음";
+    }
 }

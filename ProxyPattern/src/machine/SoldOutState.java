@@ -2,7 +2,7 @@ package machine;
 
 import java.io.Serial;
 
-public class SoldOutState implements State{
+public class SoldOutState implements State {
     @Serial
     private static final long serialVersionUID = 2L;
 
@@ -34,5 +34,10 @@ public class SoldOutState implements State{
     @Override
     public void refill() {
         gumballMachine.setState(gumballMachine.getNoQuarterState());
+    }
+
+    @Override
+    public String toString() {
+        return "state : sold out";
     }
 }

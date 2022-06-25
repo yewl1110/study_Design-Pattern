@@ -47,4 +47,8 @@ public class WinnerState implements State {
     public void refill() {
 
     }
+    @Override
+    public String toString() {
+        return "state : 당첨";
+    }
 }
